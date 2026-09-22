@@ -1,0 +1,49 @@
+<main class="page">
+  <section class="card" aria-labelledby="titulo">
+    <header class="card__header">
+      <span class="badge">PokeAPI</span>
+      <h1 id="titulo" class="title">Buscador de Pokemon</h1>
+      <p class="subtitle">
+        Escribe el nombre de un Pokemon y presiona buscar para ver su imagen.
+      </p>
+    </header>
+
+    <form class="search" (ngSubmit)="buscar()">
+      <label class="sr-only" for="pokemon-input">Nombre del Pokemon</label>
+      <input
+        id="pokemon-input"
+        class="search__input"
+        type="text"
+        name="query"
+        [(ngModel)]="query"
+        placeholder="ej. ditto, pikachu, charizard"
+        autocomplete="off"
+      />
+      <button class="search__button" type="submit" [disabled]="loading">
+        {{ loading ? 'Buscando...' : 'Buscar' }}
+      </button>
+    </form>
+
+    <div class="result" aria-live="polite">
+      <p *ngIf="error" class="message message--error">{{ error }}</p>
+
+      <div *ngIf="pokemon" class="pokemon">
+        <div class="pokemon__image-wrap">
+          <img
+            class="pokemon__image"
+            [src]="pokemon.image"
+            [alt]="'Imagen de ' + pokemon.name"
+          />
+        </div>
+        <h2 class="pokemon__name">{{ pokemon.name }}</h2>
+      </div>
+
+      <p
+        *ngIf="!pokemon && !error && !loading"
+        class="message message--muted"
+      >
+        Aun no has buscado ningun Pokemon.
+      </p>
+    </div>
+  </section>
+</main>
