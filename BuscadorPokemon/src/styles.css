@@ -1,0 +1,29 @@
+:root {
+  --color-bg: #1a1730;
+  --color-surface: #262042;
+  --color-primary: #dc2626;
+  --color-primary-dark: #b91c1c;
+  --color-accent: #fbbf24;
+  --color-text: #f5f3ff;
+  --color-muted: #a29fc0;
+  --radius: 16px;
+  --font-sans: "Poppins", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+  background-color: var(--color-bg);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
